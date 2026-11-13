@@ -1,0 +1,145 @@
+:root {
+  color-scheme: light dark;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.panel {
+  box-sizing: border-box;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #8885;
+  border-radius: 12px;
+}
+
+.settings-panel section {
+  margin: 24px 0;
+}
+
+h1,
+h2 {
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+label {
+  display: block;
+  margin: 12px 0;
+  font-weight: 600;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.checkbox-label input {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: auto;
+  margin: 4px 0 0;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  font-family: ui-monospace, monospace;
+}
+
+button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #3478c8;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #777;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.muted {
+  color: GrayText;
+}
+
+.popup {
+  width: 280px;
+  padding: 16px;
+}
+
+.popup h1 {
+  font-size: 1.1rem;
+}
+
+.popup p {
+  margin: 10px 0;
+}
+
+.result-page {
+  padding: 20px;
+}
+
+.result-panel {
+  padding: 20px;
+}
+
+.result-panel h1 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.result-panel .actions {
+  justify-content: space-between;
+}
+
+.result-status {
+  min-height: 42px;
+  overflow-wrap: anywhere;
+}
+
+.result-status.error {
+  color: #d34b4b;
+}
+
+.result-status {
+  max-height: 150px;
+  overflow-y: auto;
+  white-space: pre-line;
+}
+
+select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  font: inherit;
+}

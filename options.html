@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网页剪藏到 Obsidian - 设置</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="panel settings-panel">
+      <h1>网页剪藏到 Obsidian</h1>
+      <p>选择 Vault 文件夹，然后配置保存位置和 Markdown 模板。</p>
+
+      <section>
+        <h2>Vault 文件夹</h2>
+        <p id="folder-status" class="muted">尚未选择文件夹。</p>
+        <p class="muted">下面所有的文件路径和附件文件夹，都以这里所选的文件夹为根目录。</p>
+        <button id="choose-folder" type="button">选择 Vault 文件夹</button>
+      </section>
+
+      <section>
+        <h2>保存页面文字</h2>
+        <label>目标文件路径
+          <input id="page-path" type="text" spellcheck="false">
+        </label>
+        <label class="checkbox-label">
+          <input id="page-create-new-note" type="checkbox">
+          每次保存为新页面（文件名使用网页标题；未勾选时追加到目标文件）
+        </label>
+        <label class="checkbox-label">
+          <input id="page-use-reader-mode" type="checkbox">
+          优先保存阅读模式正文
+        </label>
+        <p class="muted">启用后会提取网页的主要正文区域；若无法识别，则保存整页文字。这不是 Edge 阅读视图内部内容。</p>
+        <label>新文件头部
+          <textarea id="page-header" rows="4"></textarea>
+        </label>
+        <p class="muted">可填写头部文字，或填写 Vault 内 Templater 模板路径（如 _meta/linux.inbox.webcapture）；不带扩展名时自动补 .md。</p>
+        <label>内容模板
+          <textarea id="page-template" rows="5"></textarea>
+        </label>
+        <p class="muted">页面文字会转换为 Markdown，保留标题、段落、列表、引用、链接、代码和表格；图片、视频、音频等媒体以文字占位符表示。可启用阅读模式正文提取以减少导航等页面噪音。</p>
+      </section>
+
+      <section>
+        <h2>保存选中文字</h2>
+        <label>目标文件路径
+          <input id="selection-path" type="text" spellcheck="false">
+        </label>
+        <label>新文件头部
+          <textarea id="selection-header" rows="4"></textarea>
+        </label>
+        <p class="muted">可填写头部文字，或填写 Vault 内 Templater 模板路径（如 _meta/linux.inbox.webcapture）；不带扩展名时自动补 .md。</p>
+        <label>内容模板
+          <textarea id="selection-template" rows="5"></textarea>
+        </label>
+        <p class="muted">选区会保留常见文字格式并转换为 Markdown；选中的网页图片会下载到附件文件夹并嵌入笔记。视频等媒体保留为链接或占位符；SVG、画布等无法直接下载的图像以占位符表示。网页自定义 CSS 样式不属于 Markdown 格式。</p>
+      </section>
+
+      <section>
+        <h2>保存截图</h2>
+        <p class="muted">右键菜单中有两种截图：可见区域和滚动区域，它们共用下面的设置。</p>
+        <label>目标文件路径
+          <input id="screenshot-path" type="text" spellcheck="false">
+        </label>
+        <label>截图格式
+          <select id="screenshot-format">
+            <option value="png">PNG（无损，文件较大）</option>
+            <option value="jpeg">JPEG（体积更小）</option>
+          </select>
+        </label>
+        <label>新文件头部
+          <textarea id="screenshot-header" rows="4"></textarea>
+        </label>
+        <label>内容模板
+          <textarea id="screenshot-template" rows="4"></textarea>
+        </label>
+      </section>
+
+      <section>
+        <h2>图片附件文件夹</h2>
+        <p class="muted">相对于上方“Vault 文件夹”所选的文件夹，例如填 images/screenshot 就保存到 所选文件夹/images/screenshot。</p>
+        <label>截图和选区图片文件保存到（留空表示所选文件夹的根目录）
+          <input id="attachment-folder" type="text" spellcheck="false">
+        </label>
+      </section>
+
+      <section>
+        <h2>追加分隔符</h2>
+        <label>每条内容之间插入的文字
+          <textarea id="append-separator" rows="2"></textarea>
+        </label>
+        <p class="muted">内容模板变量：{{title}}、{{url}}、{{date}}、{{content}}；截图还可使用 {{filepath}}（图片在 Vault 内的路径）和 {{filename}}（文件名）。Templater 头部支持 tp.file.creation_date(...)、tp.date.now(...) 和 tp.file.title。</p>
+      </section>
+
+      <div class="actions">
+        <button id="save-settings" type="button">保存设置</button>
+        <span id="save-status" role="status" class="muted"></span>
+      </div>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
